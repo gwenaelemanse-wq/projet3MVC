@@ -183,10 +183,57 @@ class AdminController
     {
         $this->checkIfUserIsConnected();
 
+        $sort = Utils::request("sort", "dateCreation");
+        $order = strtoupper(Utils::request("order", "DESC"));
+
+
+
+
         $articleManager = new ArticleManager();
         $articles = $articleManager->getAllArticlesForAdmin();
 
+        $articles = $this->sortArticles($articles, $sort, $order);
+
         $view = new View("Tableau de bord");
-        $view->render("monitoringAdmin", ['articles' => $articles]);
+        $view->render("monitoringAdmin", ['articles' => $articles, 'sort' => $sort, 'order' => $order]);
+    }
+
+    private function sortArticles(array $articles, string $sort, string $order): array
+    {
+        usort($articles, function (Article $a, Article $b) use ($sort, $order) {
+            $valueA = null;
+            $valueB = null;
+
+            switch ($sort) {
+                case "title":
+                    $valueA = $a->getTitle();
+                    $valueB = $b->getTitle();
+                    break;
+                case "nbView":
+                    $valueA = $a->getNbView();
+                    $valueB = $b->getNbView();
+                    break;
+                case "nbComments":
+                    $valueA = $a->getNbComments();
+                    $valueB = $b->getNbComments();
+                    break;
+                case "dateCreation":
+                    $valueA = $a->getDateCreation()->getTimestamp();
+                    $valueB = $b->getDateCreation()->getTimestamp();
+                    break;
+                case "dateUpdate":
+                    $valueA = $a->getDateUpdate() ? $a->getDateUpdate()->getTimestamp() : 0;
+                    $valueB = $b->getDateUpdate() ? $b->getDateUpdate()->getTimestamp() : 0;
+                    break;
+            }
+
+            if ($order === "ASC") {
+                return ($valueA <=> $valueB);
+            } else {
+                return ($valueB <=> $valueA);
+            }
+        });
+
+        return $articles;
     }
 }

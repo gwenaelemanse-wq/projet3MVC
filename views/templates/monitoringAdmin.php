@@ -4,15 +4,32 @@
 
 ?>
 
+
 <h2>Tableau de bord</h2>
 
 <div class="monitoringAdmin">
     <div class="articleLine">
-        <div class="title">Titre</div>
-        <div class="content">Nombre de vues</div>
-        <div class="content">Nombre de commentaires</div>
-        <div class="content">Date de création</div>
-        <div class="content">Date de dernière modification</div>
+        <div class="title">Titre
+            <a href="index.php?action=monitoringAdmin&sort=title&order=ASC">▲</a>
+            <a href="index.php?action=monitoringAdmin&sort=title&order=DESC">▼</a>
+        </div>
+
+        <div class="content">Nombre de vues
+            <a href="index.php?action=monitoringAdmin&sort=nbView&order=ASC">▲</a>
+            <a href="index.php?action=monitoringAdmin&sort=nbView&order=DESC">▼</a>
+        </div>
+        <div class="content">Nombre de commentaires
+            <a href="index.php?action=monitoringAdmin&sort=nbComments&order=ASC">▲</a>
+            <a href="index.php?action=monitoringAdmin&sort=nbComments&order=DESC">▼</a>
+        </div>
+        <div class="content">Date de création
+            <a href="index.php?action=monitoringAdmin&sort=dateCreation&order=ASC">▲</a>
+            <a href="index.php?action=monitoringAdmin&sort=dateCreation&order=DESC">▼</a>
+        </div>
+        <div class="content">Date de dernière modification
+            <a href="index.php?action=monitoringAdmin&sort=dateUpdate&order=ASC">▲</a>
+            <a href="index.php?action=monitoringAdmin&sort=dateUpdate&order=DESC">▼</a>
+        </div>
     </div>
 
     <?php foreach ($articles as $article) { ?>
