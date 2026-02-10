@@ -250,6 +250,8 @@ class AdminController
         $articleManager = new ArticleManager();
         $article = $articleManager->getArticleById($articleId);
 
+
+
         $commentManager = new CommentManager();
         $comments = $commentManager->getAllCommentsByArticleId($articleId);
 
@@ -259,5 +261,18 @@ class AdminController
             'comments' => $comments,
             'articleId' => $articleId
         ]);
+    }
+
+    public function deleteComment(): void
+    {
+        $this->checkIfUserIsConnected();
+
+        $commentId = (int) Utils::request("commentId", -1);
+        $articleId = (int) Utils::request("articleId", -1);
+
+        $commentManager = new CommentManager();
+        $commentManager->deleteCommentById($commentId);
+
+        Utils::redirect("adminComments&articleId=" . $articleId);
     }
 }

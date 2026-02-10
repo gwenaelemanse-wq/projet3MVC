@@ -82,8 +82,13 @@ try {
         case 'adminComments':
             $adminController = new AdminController();
             $adminController->adminComments();
-            die("ROUTE adminComments OK");
+            break;
 
+        case 'deleteComment':
+            $adminController = new AdminController();
+            $adminController->deleteComment();
+            var_dump($_GET, $commentId, $articleId);
+            die();
             break;
 
         default:

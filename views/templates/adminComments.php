@@ -16,7 +16,14 @@
                     <div class="detailComment">
                         <h3 class="info">Le <?= Utils::convertDateToFrenchFormat($comment->getDateCreation()) ?>, <?= Utils::format($comment->getPseudo()) ?> a écrit :</h3>
                         <p class="content"><?= Utils::format($comment->getContent()) ?></p>
-                        <a class="submit" href="index.php?action=deleteComment&id=<?= $comment->getId() ?>" <?= Utils::askConfirmation("Êtes-vous sûr de vouloir supprimer ce commentaire ?") ?>>Supprimer</a>
+                        <a class="submit"
+                            href="index.php?action=deleteComment&commentId=<?= $comment->getId() ?>&articleId=<?= $articleId ?>"
+                            <?= Utils::askConfirmation("Êtes-vous sûr de vouloir supprimer ?") ?>>
+                            Supprimer
+                        </a>
+
+
+
                     </div>
                 </li>
             <?php } ?>
