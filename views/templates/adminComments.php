@@ -1,0 +1,24 @@
+<?php
+
+//*Affichages et suppression des commentaires pour un article donné pour l'administareur.*
+
+?>
+
+<h1>Commentaires de l'article : <?= Utils::format($article->getTitle()) ?></h1>
+
+<div class="adminComments">
+    <?php if (empty($comments)) { ?>
+        <p class="info">Aucun commentaire pour cet article.</p>
+    <?php } else { ?>
+        <ul>
+            <?php foreach ($comments as $comment) { ?>
+                <li>
+                    <div class="detailComment">
+                        <h3 class="info">Le <?= Utils::convertDateToFrenchFormat($comment->getDateCreation()) ?>, <?= Utils::format($comment->getPseudo()) ?> a écrit :</h3>
+                        <p class="content"><?= Utils::format($comment->getContent()) ?></p>
+                        <a class="submit" href="index.php?action=deleteComment&id=<?= $comment->getId() ?>" <?= Utils::askConfirmation("Êtes-vous sûr de vouloir supprimer ce commentaire ?") ?>>Supprimer</a>
+                    </div>
+                </li>
+            <?php } ?>
+        </ul>
+    <?php } ?>

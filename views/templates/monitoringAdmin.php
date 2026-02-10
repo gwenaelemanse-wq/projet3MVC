@@ -36,7 +36,10 @@
         <div class="articleLine">
             <div class="title"><?= $article->getTitle() ?></div>
             <div class="content"><?= $article->getNbView() ?></div>
-            <div class="content"><?= $article->getNbComments() ?></div>
+            <div class="content">
+                <a href="index.php?action=adminComments&articleId=<?= $article->getId() ?>"><strong><?= $article->getNbComments() ?></strong></a>
+
+            </div>
             <div class="content"><?= Utils::convertDateToFrenchFormat($article->getDateCreation()) ?></div>
             <div class="content">
                 <?= $article->getDateUpdate()

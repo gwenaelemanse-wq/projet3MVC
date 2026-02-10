@@ -20,10 +20,14 @@ class AdminController
         $articleManager = new ArticleManager();
         $articles = $articleManager->getAllArticles();
 
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getAllComments();
+
         // On affiche la page d'administration.
         $view = new View("Administration");
         $view->render("admin", [
-            'articles' => $articles
+            'articles' => $articles,
+            'comments' => $comments
         ]);
     }
 
@@ -186,8 +190,8 @@ class AdminController
         $sort = Utils::request("sort", "dateCreation");
         $order = strtoupper(Utils::request("order", "DESC"));
 
-
-
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getAllCommentsForAdmin();
 
         $articleManager = new ArticleManager();
         $articles = $articleManager->getAllArticlesForAdmin();
@@ -195,7 +199,7 @@ class AdminController
         $articles = $this->sortArticles($articles, $sort, $order);
 
         $view = new View("Tableau de bord");
-        $view->render("monitoringAdmin", ['articles' => $articles, 'sort' => $sort, 'order' => $order]);
+        $view->render("monitoringAdmin", ['articles' => $articles, 'sort' => $sort, 'order' => $order, 'comments' => $comments]);
     }
 
     private function sortArticles(array $articles, string $sort, string $order): array
@@ -235,5 +239,25 @@ class AdminController
         });
 
         return $articles;
+    }
+
+    public function adminComments(): void
+    {
+        $this->checkIfUserIsConnected();
+
+        $articleId = (int) Utils::request("articleId", -1);
+
+        $articleManager = new ArticleManager();
+        $article = $articleManager->getArticleById($articleId);
+
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getAllCommentsByArticleId($articleId);
+
+        $view = new View("Commentaires de l'article " . $articleId);
+        $view->render("adminComments", [
+            'article' => $article,
+            'comments' => $comments,
+            'articleId' => $articleId
+        ]);
     }
 }
