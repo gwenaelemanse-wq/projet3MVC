@@ -38,7 +38,7 @@ try {
             break;
 
 
-        // Section admin & connexion. 
+        // Section admin & connexion.
         case 'admin':
             $adminController = new AdminController();
             $adminController->showAdmin();

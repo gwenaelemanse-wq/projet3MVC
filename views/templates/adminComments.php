@@ -4,7 +4,7 @@
 
 ?>
 
-<h1>Commentaires de l'article : <?= Utils::format($article->getTitle()) ?></h1>
+<h3>Commentaires de l'article : <?= Utils::format($article->getTitle()) ?></h3>
 
 <div class="adminComments">
     <?php if (empty($comments)) { ?>

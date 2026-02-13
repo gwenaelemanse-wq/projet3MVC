@@ -1,12 +1,15 @@
 <?php
 
+
+
+
+
 /**
  * Contrôleur de la partie admin.
  */
 
 class AdminController
 {
-
     /**
      * Affiche la page d'administration.
      * @return void
@@ -117,7 +120,7 @@ class AdminController
         $articleManager = new ArticleManager();
         $article = $articleManager->getArticleById($id);
 
-        // Si l'article n'existe pas, on en crée un vide. 
+        // Si l'article n'existe pas, on en crée un vide.
         if (!$article) {
             $article = new Article();
         }
@@ -130,7 +133,7 @@ class AdminController
     }
 
     /**
-     * Ajout et modification d'un article. 
+     * Ajout et modification d'un article.
      * On sait si un article est ajouté car l'id vaut -1.
      * @return void
      */

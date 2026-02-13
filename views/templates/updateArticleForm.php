@@ -1,11 +1,13 @@
-<?php 
-    /** 
-     * Template du formulaire d'update/creation d'un article. 
-     */
+<?php
+
+/**
+ * Template du formulaire d'update/creation d'un article.
+ */
+
 ?>
 
 <form action="index.php" method="post" class="foldedCorner">
-    <h2><?= $article->getId() == -1 ? "Création d'un article" : "Modification de l'article "?></h2>
+    <h2><?= $article->getId() == -1 ? "Création d'un article" : "Modification de l'article " ?></h2>
     <div class="formGrid">
         <label for="title">Titre</label>
         <input type="text" name="title" id="title" value="<?= $article->getTitle() ?>" required>
@@ -19,7 +21,7 @@
 
 <script>
 
-    
-    
+
+
 
 </script>
