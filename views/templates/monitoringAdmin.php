@@ -32,6 +32,7 @@
         </div>
     </div>
 
+
     <?php foreach ($articles as $article) { ?>
         <div class="articleLine">
             <div class="title"><?= $article->getTitle() ?></div>
@@ -48,5 +49,12 @@
                 ?>
             </div>
 
+
+
         </div>
+
+
+
     <?php } ?>
+
+    <a class="submit" href="index.php?action=admin">Retour</a>

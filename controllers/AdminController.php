@@ -1,9 +1,5 @@
 <?php
 
-
-
-
-
 /**
  * Contrôleur de la partie admin.
  */

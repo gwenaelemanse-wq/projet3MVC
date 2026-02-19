@@ -117,6 +117,8 @@ form .formGrid .submit {
   color: white;
   background-color: var(--commentColor);
   border: none;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 /**
