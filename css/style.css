@@ -364,7 +364,7 @@ a.info {
 /* Chaque ligne = même grille => colonnes alignées */
 .monitoringAdmin .articleLine {
   display: grid;
-  grid-template-columns: 240px 140px 180px 240px 260px;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
 }
 
 /* IMPORTANT : on neutralise les vieux styles de l'admin */
