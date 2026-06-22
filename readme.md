@@ -5,6 +5,12 @@
 Ce projet a ete realise dans le cadre de ma formation Developpeuse Web Full-Stack chez OpenClassrooms.
 Il a pour objectif de mettre en pratique une architecture MVC en PHP, la gestion d'une base de donnees et la structuration d'une application web cote serveur.
 
+## Captures d'ecran
+
+![Accueil du blog](docs/screenshots/home.png)
+![Billet](docs/screenshots/post.png)
+![Administration](docs/screenshots/admin.png)
+
 ## Pour utiliser ce projet : 
 
 - Commencer par cloner le projet. 
