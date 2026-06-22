@@ -1,5 +1,10 @@
 ## Blog d'Emilie Forteroche
 
+## Contexte du projet
+
+Ce projet a ete realise dans le cadre de ma formation Developpeuse Web Full-Stack chez OpenClassrooms.
+Il a pour objectif de mettre en pratique une architecture MVC en PHP, la gestion d'une base de donnees et la structuration d'une application web cote serveur.
+
 ## Pour utiliser ce projet : 
 
 - Commencer par cloner le projet. 
@@ -23,3 +28,7 @@ Ce projet a été réalisé avec PHP 8.2. Bien que d'autres versions de PHP puis
 ## Copyright : 
 
 Projet utilisé dans le cadre d'une formation Openclassrooms. 
+
+## Auteur
+
+Gwenaële Manse
